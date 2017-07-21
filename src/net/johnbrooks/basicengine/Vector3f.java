@@ -5,7 +5,7 @@ package net.johnbrooks.basicengine;
  */
 public class Vector3f
 {
-    private float x, y, z;
+    protected float x, y, z;
 
     public Vector3f(float x, float y, float z)
     {

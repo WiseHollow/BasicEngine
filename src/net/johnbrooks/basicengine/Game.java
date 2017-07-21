@@ -43,7 +43,8 @@ public class Game
     {
         input();
         temp += Time.getDelta();
-        transform.setTranslation((float) Math.sin(temp), 0, 0);
+        //transform.setTranslation((float) Math.sin(temp), 0, 0);
+        transform.setRotation(0, 0, (float) Math.sin(temp) * 180);
     }
 
     private void input()
