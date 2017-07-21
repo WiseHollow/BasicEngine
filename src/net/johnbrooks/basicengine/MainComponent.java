@@ -7,7 +7,7 @@ public class MainComponent
 {
     private static final int WIDTH = 800, HEIGHT = 600;
     private static final String TITLE = "Basic Engine";
-    public static final double FPS = 60;
+    public static final double FPS = 120;
 
     public static void main(String[] args)
     {

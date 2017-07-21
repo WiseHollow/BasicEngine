@@ -16,12 +16,18 @@ public class Game
     {
         meshTest = new Mesh();
         shader = new Shader();
-        Vertex[] data = new Vertex[] {
+        Vertex[] vertices = new Vertex[] {
                 new Vertex(new Vector3f(-1, -1, 0)),
                 new Vertex(new Vector3f(0, 1, 0)),
-                new Vertex(new Vector3f(1, -1, 0))};
+                new Vertex(new Vector3f(1, -1, 0)),
+                new Vertex(new Vector3f(0, -1, 1))};
 
-        meshTest.addVertices(data);
+        int[] indices = new int[] { 0, 1, 3,
+                                    3, 1, 2,
+                                    2, 1, 0,
+                                    0, 2, 3};
+
+        meshTest.addVertices(vertices, indices);
 
         transform = new Transform();
 
@@ -43,12 +49,11 @@ public class Game
     {
         input();
         temp += Time.getDelta();
-        //transform.setTranslation((float) Math.sin(temp), 0, 0);
-        //transform.setRotation(0, 0, (float) Math.sin(temp) * 180);
-        //transform.setScale((float) Math.sin(temp), (float) Math.sin(temp), (float) Math.sin(temp));
-
         float sinTemp = (float) Math.sin(temp);
-        transform.setScale(sinTemp, sinTemp, sinTemp);
+        transform.setTranslation((float) Math.sin(temp), 0, 0);
+        transform.setRotation(0, (float) Math.sin(temp) * 180, 0);
+        transform.setScale(1, 1, 1);
+
     }
 
     private void input()
