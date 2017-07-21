@@ -26,6 +26,7 @@ public class Time
     {
         return System.nanoTime() / 1000000000d;
     }
+    public static double getDelta() { return delta; }
 
     public static boolean needsRender()
     {
@@ -59,6 +60,7 @@ public class Time
         shouldRender = false;
         double mNewTime = Time.getTime();
         double passed = mNewTime - mTime;
+        delta = passed;
         Time.unprocessedTime += passed;
         Time.frameTime += passed;
         mTime = mNewTime;
