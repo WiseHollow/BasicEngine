@@ -7,11 +7,14 @@ public class Transform
 {
     private Vector3f translation;
     private Vector3f rotation;
+    private Vector3f scale;
+
 
     public Transform()
     {
         translation = new Vector3f(0, 0, 0);
         rotation = new Vector3f(0, 0, 0);
+        scale = new Vector3f(1, 1, 1);
     }
 
     public Matrix4f getTransformation()
@@ -22,7 +25,10 @@ public class Transform
         Matrix4f rotationMatrix = new Matrix4f();
         rotationMatrix.initRotation(rotation.getX(), rotation.getY(), rotation.getZ());
 
-        return translationMatrix.multiply(rotationMatrix);
+        Matrix4f scaleMatrix = new Matrix4f();
+        scaleMatrix.initScale(scale.getX(), scale.getY(), scale.getZ());
+
+        return translationMatrix.multiply(rotationMatrix.multiply(scaleMatrix));
     }
 
     public Vector3f getTranslation()
@@ -57,5 +63,22 @@ public class Transform
         this.rotation.x = x;
         this.rotation.y = y;
         this.rotation.z = z;
+    }
+
+    public Vector3f getScale()
+    {
+        return scale;
+    }
+
+    public void setScale(Vector3f scale)
+    {
+        this.scale = scale;
+    }
+
+    public void setScale(float x, float y, float z)
+    {
+        this.scale.x = x;
+        this.scale.y = y;
+        this.scale.z = z;
     }
 }

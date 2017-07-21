@@ -44,7 +44,11 @@ public class Game
         input();
         temp += Time.getDelta();
         //transform.setTranslation((float) Math.sin(temp), 0, 0);
-        transform.setRotation(0, 0, (float) Math.sin(temp) * 180);
+        //transform.setRotation(0, 0, (float) Math.sin(temp) * 180);
+        //transform.setScale((float) Math.sin(temp), (float) Math.sin(temp), (float) Math.sin(temp));
+
+        float sinTemp = (float) Math.sin(temp);
+        transform.setScale(sinTemp, sinTemp, sinTemp);
     }
 
     private void input()
